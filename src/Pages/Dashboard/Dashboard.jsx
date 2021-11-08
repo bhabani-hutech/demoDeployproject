@@ -21,7 +21,9 @@ const Dashboard = () => {
   useEffect(() => {
     console.log("useEffect called");
     sendDetailsToServer();
-  },[]);
+  // eslint-disable-next-line no-use-before-define
+  }, [sendDetailsToServer]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const sendDetailsToServer = () => {
     axios
       .get(
