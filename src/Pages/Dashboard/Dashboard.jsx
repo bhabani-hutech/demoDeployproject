@@ -21,7 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     console.log("useEffect called");
     sendDetailsToServer();
-  }, );
+  },[]);
   const sendDetailsToServer = () => {
     axios
       .get(
