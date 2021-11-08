@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [results, setResults] = useState([]);
   const [poster_path, setPoster_path] = useState("");
   const [genres, setGenres] = useState([]);
-  const [overview, setOverview] = useState("");
+  // const [overview, setOverview] = useState("");
   const [title, setTitle] = useState("");
   const [showDialog, setshowDialog] = useState(false);
   const [MovieDetails, setMoviesDetail] = useState({});
@@ -21,7 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     console.log("useEffect called");
     sendDetailsToServer();
-  }, []);
+  }, );
   const sendDetailsToServer = () => {
     axios
       .get(
@@ -34,6 +34,8 @@ const Dashboard = () => {
           responseData.data.results.map((item) => item.poster_path)
         );
         setGenres(responseData.data.results.map((item) => item.genres));
+        setTitle(responseData.data.results.map((item) => item.title));
+         console.log(genres);
         console.log(responseData.data);
         console.log(responseData.data.poster_path);
       });
